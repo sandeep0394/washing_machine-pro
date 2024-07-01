@@ -1,0 +1,1306 @@
+
+
+Microchip MPLAB XC8 Assembler V2.41 build 20230208172133 
+                                                                                               Mon Sep 11 20:43:12 2023
+
+Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1 
+     1                           	processor	16F877A
+     2                           	pagewidth 120
+     3                           	opt	flic
+     4                           	psect	idataCOMMON,global,class=CODE,delta=2,noexec
+     5                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     6                           	psect	dataCOMMON,global,class=COMMON,space=1,delta=1,noexec
+     7                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1,noexec
+     8                           	psect	maintext,global,class=CODE,split=1,delta=2
+     9                           	psect	text1,local,class=CODE,merge=1,delta=2
+    10                           	psect	text2,local,class=CODE,merge=1,delta=2
+    11                           	psect	text3,local,class=CODE,merge=1,delta=2
+    12                           	psect	text4,local,class=CODE,merge=1,delta=2
+    13                           	psect	idloc,global,abs,ovrld,class=IDLOC,space=5,delta=2,noexec
+    14                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
+    15                           	dabs	1,0x7E,2
+    16     0000                     
+    17                           ; Version 2.20
+    18                           ; Generated 12/02/2020 GMT
+    19                           ; 
+    20                           ; Copyright © 2020, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    21                           ; All rights reserved.
+    22                           ; 
+    23                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    24                           ; 
+    25                           ; Redistribution and use in source and binary forms, with or without modification, are
+    26                           ; permitted provided that the following conditions are met:
+    27                           ; 
+    28                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    29                           ;        conditions and the following disclaimer.
+    30                           ; 
+    31                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    32                           ;        of conditions and the following disclaimer in the documentation and/or other
+    33                           ;        materials provided with the distribution.
+    34                           ; 
+    35                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    36                           ;        software without specific prior written permission.
+    37                           ; 
+    38                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    39                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    40                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    41                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    42                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    43                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    44                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    45                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    46                           ; 
+    47                           ; 
+    48                           ; Code-generator required, PIC16F877A Definitions
+    49                           ; 
+    50                           ; SFR Addresses
+    51     0000                     	;# 
+    52     0001                     	;# 
+    53     0002                     	;# 
+    54     0003                     	;# 
+    55     0004                     	;# 
+    56     0005                     	;# 
+    57     0006                     	;# 
+    58     0007                     	;# 
+    59     0008                     	;# 
+    60     0009                     	;# 
+    61     000A                     	;# 
+    62     000B                     	;# 
+    63     000C                     	;# 
+    64     000D                     	;# 
+    65     000E                     	;# 
+    66     000E                     	;# 
+    67     000F                     	;# 
+    68     0010                     	;# 
+    69     0011                     	;# 
+    70     0012                     	;# 
+    71     0013                     	;# 
+    72     0014                     	;# 
+    73     0015                     	;# 
+    74     0015                     	;# 
+    75     0016                     	;# 
+    76     0017                     	;# 
+    77     0018                     	;# 
+    78     0019                     	;# 
+    79     001A                     	;# 
+    80     001B                     	;# 
+    81     001B                     	;# 
+    82     001C                     	;# 
+    83     001D                     	;# 
+    84     001E                     	;# 
+    85     001F                     	;# 
+    86     0081                     	;# 
+    87     0085                     	;# 
+    88     0086                     	;# 
+    89     0087                     	;# 
+    90     0088                     	;# 
+    91     0089                     	;# 
+    92     008C                     	;# 
+    93     008D                     	;# 
+    94     008E                     	;# 
+    95     0091                     	;# 
+    96     0092                     	;# 
+    97     0093                     	;# 
+    98     0094                     	;# 
+    99     0098                     	;# 
+   100     0099                     	;# 
+   101     009C                     	;# 
+   102     009D                     	;# 
+   103     009E                     	;# 
+   104     009F                     	;# 
+   105     010C                     	;# 
+   106     010D                     	;# 
+   107     010E                     	;# 
+   108     010F                     	;# 
+   109     018C                     	;# 
+   110     018D                     	;# 
+   111     0000                     	;# 
+   112     0001                     	;# 
+   113     0002                     	;# 
+   114     0003                     	;# 
+   115     0004                     	;# 
+   116     0005                     	;# 
+   117     0006                     	;# 
+   118     0007                     	;# 
+   119     0008                     	;# 
+   120     0009                     	;# 
+   121     000A                     	;# 
+   122     000B                     	;# 
+   123     000C                     	;# 
+   124     000D                     	;# 
+   125     000E                     	;# 
+   126     000E                     	;# 
+   127     000F                     	;# 
+   128     0010                     	;# 
+   129     0011                     	;# 
+   130     0012                     	;# 
+   131     0013                     	;# 
+   132     0014                     	;# 
+   133     0015                     	;# 
+   134     0015                     	;# 
+   135     0016                     	;# 
+   136     0017                     	;# 
+   137     0018                     	;# 
+   138     0019                     	;# 
+   139     001A                     	;# 
+   140     001B                     	;# 
+   141     001B                     	;# 
+   142     001C                     	;# 
+   143     001D                     	;# 
+   144     001E                     	;# 
+   145     001F                     	;# 
+   146     0081                     	;# 
+   147     0085                     	;# 
+   148     0086                     	;# 
+   149     0087                     	;# 
+   150     0088                     	;# 
+   151     0089                     	;# 
+   152     008C                     	;# 
+   153     008D                     	;# 
+   154     008E                     	;# 
+   155     0091                     	;# 
+   156     0092                     	;# 
+   157     0093                     	;# 
+   158     0094                     	;# 
+   159     0098                     	;# 
+   160     0099                     	;# 
+   161     009C                     	;# 
+   162     009D                     	;# 
+   163     009E                     	;# 
+   164     009F                     	;# 
+   165     010C                     	;# 
+   166     010D                     	;# 
+   167     010E                     	;# 
+   168     010F                     	;# 
+   169     018C                     	;# 
+   170     018D                     	;# 
+   171     0000                     	;# 
+   172     0001                     	;# 
+   173     0002                     	;# 
+   174     0003                     	;# 
+   175     0004                     	;# 
+   176     0005                     	;# 
+   177     0006                     	;# 
+   178     0007                     	;# 
+   179     0008                     	;# 
+   180     0009                     	;# 
+   181     000A                     	;# 
+   182     000B                     	;# 
+   183     000C                     	;# 
+   184     000D                     	;# 
+   185     000E                     	;# 
+   186     000E                     	;# 
+   187     000F                     	;# 
+   188     0010                     	;# 
+   189     0011                     	;# 
+   190     0012                     	;# 
+   191     0013                     	;# 
+   192     0014                     	;# 
+   193     0015                     	;# 
+   194     0015                     	;# 
+   195     0016                     	;# 
+   196     0017                     	;# 
+   197     0018                     	;# 
+   198     0019                     	;# 
+   199     001A                     	;# 
+   200     001B                     	;# 
+   201     001B                     	;# 
+   202     001C                     	;# 
+   203     001D                     	;# 
+   204     001E                     	;# 
+   205     001F                     	;# 
+   206     0081                     	;# 
+   207     0085                     	;# 
+   208     0086                     	;# 
+   209     0087                     	;# 
+   210     0088                     	;# 
+   211     0089                     	;# 
+   212     008C                     	;# 
+   213     008D                     	;# 
+   214     008E                     	;# 
+   215     0091                     	;# 
+   216     0092                     	;# 
+   217     0093                     	;# 
+   218     0094                     	;# 
+   219     0098                     	;# 
+   220     0099                     	;# 
+   221     009C                     	;# 
+   222     009D                     	;# 
+   223     009E                     	;# 
+   224     009F                     	;# 
+   225     010C                     	;# 
+   226     010D                     	;# 
+   227     010E                     	;# 
+   228     010F                     	;# 
+   229     018C                     	;# 
+   230     018D                     	;# 
+   231                           
+   232                           	psect	idataCOMMON
+   233     06B5                     __pidataCOMMON:
+   234                           
+   235                           ;initializer for read_matrix_keypad@once
+   236     06B5  3401               	retlw	1
+   237     0032                     _RB2	set	50
+   238     0031                     _RB1	set	49
+   239     0030                     _RB0	set	48
+   240     0040                     _RD0	set	64
+   241     0041                     _RD1	set	65
+   242     0042                     _RD2	set	66
+   243     0043                     _RD3	set	67
+   244     0044                     _RD4	set	68
+   245     0088                     _TRISD	set	136
+   246     0086                     _TRISB	set	134
+   247     040F                     _nRBPU	set	1039
+   248     0444                     _TRISD4	set	1092
+   249                           
+   250                           	psect	cinit
+   251     07F6                     start_initialization:	
+   252                           ; #config settings
+   253                           
+   254     07F6                     __initialization:
+   255                           
+   256                           ; Initialize objects allocated to COMMON
+   257     07F6  120A  118A  26B5  120A  118A  	fcall	__pidataCOMMON	;fetch initializer
+   258     07FB  00FD               	movwf	__pdataCOMMON& (0+127)
+   259     07FC                     end_of_initialization:	
+   260                           ;End of C runtime variable initialization code
+   261                           
+   262     07FC                     __end_of__initialization:
+   263     07FC  0183               	clrf	3
+   264     07FD  120A  118A  2EF5   	ljmp	_main	;jump to C main() function
+   265                           
+   266                           	psect	dataCOMMON
+   267     007D                     __pdataCOMMON:
+   268     007D                     read_matrix_keypad@once:
+   269     007D                     	ds	1
+   270                           
+   271                           	psect	cstackCOMMON
+   272     0070                     __pcstackCOMMON:
+   273     0070                     ?_init_matrix_keypad:
+   274     0070                     ??_init_matrix_keypad:	
+   275                           ; 1 bytes @ 0x0
+   276                           
+   277     0070                     ?_read_matrix_keypad:	
+   278                           ; 1 bytes @ 0x0
+   279                           
+   280     0070                     ?_init_config:	
+   281                           ; 1 bytes @ 0x0
+   282                           
+   283     0070                     ??_init_config:	
+   284                           ; 1 bytes @ 0x0
+   285                           
+   286     0070                     ?_main:	
+   287                           ; 1 bytes @ 0x0
+   288                           
+   289     0070                     ?_scan_keypad:	
+   290                           ; 1 bytes @ 0x0
+   291                           
+   292     0070                     ??_scan_keypad:	
+   293                           ; 1 bytes @ 0x0
+   294                           
+   295     0070                     scan_keypad@i:	
+   296                           ; 1 bytes @ 0x0
+   297                           
+   298                           
+   299                           ; 2 bytes @ 0x0
+   300     0070                     	ds	2
+   301     0072                     ??_read_matrix_keypad:
+   302     0072                     read_matrix_keypad@mode:	
+   303                           ; 1 bytes @ 0x2
+   304                           
+   305                           
+   306                           ; 1 bytes @ 0x2
+   307     0072                     	ds	1
+   308     0073                     read_matrix_keypad@key:
+   309                           
+   310                           ; 1 bytes @ 0x3
+   311     0073                     	ds	1
+   312     0074                     ??_main:
+   313                           
+   314                           ; 1 bytes @ 0x4
+   315     0074                     	ds	4
+   316     0078                     main@key:
+   317                           
+   318                           ; 1 bytes @ 0x8
+   319     0078                     	ds	1
+   320     0079                     main@delay:
+   321                           
+   322                           ; 4 bytes @ 0x9
+   323     0079                     	ds	4
+   324                           
+   325                           	psect	maintext
+   326     06F5                     __pmaintext:	
+   327 ;;
+   328 ;;Main: autosize = 0, tempsize = 4, incstack = 0, save=0
+   329 ;;
+   330 ;; *************** function _main *****************
+   331 ;; Defined at:
+   332 ;;		line 22 in file "main.c"
+   333 ;; Parameters:    Size  Location     Type
+   334 ;;		None
+   335 ;; Auto vars:     Size  Location     Type
+   336 ;;  delay           4    9[COMMON] unsigned long 
+   337 ;;  key             1    8[COMMON] unsigned char 
+   338 ;; Return value:  Size  Location     Type
+   339 ;;                  1    wreg      void 
+   340 ;; Registers used:
+   341 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
+   342 ;; Tracked objects:
+   343 ;;		On entry : B00/0
+   344 ;;		On exit  : 0/0
+   345 ;;		Unchanged: 0/0
+   346 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   347 ;;      Params:         0       0       0       0       0
+   348 ;;      Locals:         5       0       0       0       0
+   349 ;;      Temps:          4       0       0       0       0
+   350 ;;      Totals:         9       0       0       0       0
+   351 ;;Total ram usage:        9 bytes
+   352 ;; Hardware stack levels required when called: 2
+   353 ;; This function calls:
+   354 ;;		_init_config
+   355 ;;		_read_matrix_keypad
+   356 ;; This function is called by:
+   357 ;;		Startup code after reset
+   358 ;; This function uses a non-reentrant model
+   359 ;;
+   360                           
+   361     06F5                     _main:	
+   362                           ;psect for function _main
+   363                           
+   364     06F5                     l831:	
+   365                           ;incstack = 0
+   366                           ; Regs used in _main: [wreg+status,2+status,0+btemp+1+pclath+cstack]
+   367                           
+   368                           
+   369                           ;main.c: 23:         };main.c: 25:     }
+   370     06F5  120A  118A  26B6  120A  118A  	fcall	_init_config
+   371     06FA                     l833:
+   372     06FA  3000               	movlw	0
+   373     06FB  120A  118A  26D2  120A  118A  	fcall	_read_matrix_keypad
+   374     0700  00F8               	movwf	main@key
+   375     0701                     l835:
+   376     0701  302A               	movlw	42
+   377     0702  0678               	xorwf	main@key,w
+   378     0703  1D03               	btfss	3,2
+   379     0704  2F06               	goto	u211
+   380     0705  2F07               	goto	u210
+   381     0706                     u211:
+   382     0706  2EFA               	goto	l833
+   383     0707                     u210:
+   384     0707                     l837:
+   385     0707  3010               	movlw	16
+   386     0708  1283               	bcf	3,5	;RP0=0, select bank0
+   387     0709  1303               	bcf	3,6	;RP1=0, select bank0
+   388     070A  0688               	xorwf	8,f
+   389     070B  3000               	movlw	0
+   390     070C  00FC               	movwf	main@delay+3
+   391     070D  3000               	movlw	0
+   392     070E  00FB               	movwf	main@delay+2
+   393     070F  30C3               	movlw	195
+   394     0710  00FA               	movwf	main@delay+1
+   395     0711  3050               	movlw	80
+   396     0712  00F9               	movwf	main@delay
+   397     0713                     l841:
+   398     0713  3001               	movlw	1
+   399     0714  00F4               	movwf	??_main
+   400     0715  3000               	movlw	0
+   401     0716  00F5               	movwf	??_main+1
+   402     0717  3000               	movlw	0
+   403     0718  00F6               	movwf	??_main+2
+   404     0719  3000               	movlw	0
+   405     071A  00F7               	movwf	??_main+3
+   406     071B  0874               	movf	??_main,w
+   407     071C  02F9               	subwf	main@delay,f
+   408     071D  0875               	movf	??_main+1,w
+   409     071E  1C03               	skipc
+   410     071F  0F75               	incfsz	??_main+1,w
+   411     0720  2F22               	goto	u225
+   412     0721  2F23               	goto	u226
+   413     0722                     u225:
+   414     0722  02FA               	subwf	main@delay+1,f
+   415     0723                     u226:
+   416     0723  0876               	movf	??_main+2,w
+   417     0724  1C03               	skipc
+   418     0725  0F76               	incfsz	??_main+2,w
+   419     0726  2F28               	goto	u227
+   420     0727  2F29               	goto	u228
+   421     0728                     u227:
+   422     0728  02FB               	subwf	main@delay+2,f
+   423     0729                     u228:
+   424     0729  0877               	movf	??_main+3,w
+   425     072A  1C03               	skipc
+   426     072B  0F77               	incfsz	??_main+3,w
+   427     072C  2F2E               	goto	u229
+   428     072D  2F2F               	goto	u220
+   429     072E                     u229:
+   430     072E  02FC               	subwf	main@delay+3,f
+   431     072F                     u220:
+   432     072F  087C               	movf	main@delay+3,w
+   433     0730  047B               	iorwf	main@delay+2,w
+   434     0731  047A               	iorwf	main@delay+1,w
+   435     0732  0479               	iorwf	main@delay,w
+   436     0733  1D03               	skipz
+   437     0734  2F36               	goto	u231
+   438     0735  2F37               	goto	u230
+   439     0736                     u231:
+   440     0736  2F13               	goto	l841
+   441     0737                     u230:
+   442     0737  2EFA               	goto	l833
+   443     0738  120A  118A  2800   	ljmp	start
+   444     073B                     __end_of_main:
+   445                           
+   446                           	psect	text1
+   447     06D2                     __ptext1:	
+   448 ;; *************** function _read_matrix_keypad *****************
+   449 ;; Defined at:
+   450 ;;		line 114 in file "matrix_keypad.c"
+   451 ;; Parameters:    Size  Location     Type
+   452 ;;  mode            1    wreg     unsigned char 
+   453 ;; Auto vars:     Size  Location     Type
+   454 ;;  mode            1    2[COMMON] unsigned char 
+   455 ;;  key             1    3[COMMON] unsigned char 
+   456 ;; Return value:  Size  Location     Type
+   457 ;;                  1    wreg      unsigned char 
+   458 ;; Registers used:
+   459 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
+   460 ;; Tracked objects:
+   461 ;;		On entry : 0/0
+   462 ;;		On exit  : 0/0
+   463 ;;		Unchanged: 0/0
+   464 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   465 ;;      Params:         0       0       0       0       0
+   466 ;;      Locals:         2       0       0       0       0
+   467 ;;      Temps:          0       0       0       0       0
+   468 ;;      Totals:         2       0       0       0       0
+   469 ;;Total ram usage:        2 bytes
+   470 ;; Hardware stack levels used: 1
+   471 ;; Hardware stack levels required when called: 1
+   472 ;; This function calls:
+   473 ;;		_scan_keypad
+   474 ;; This function is called by:
+   475 ;;		_main
+   476 ;; This function uses a non-reentrant model
+   477 ;;
+   478                           
+   479     06D2                     _read_matrix_keypad:	
+   480                           ;psect for function _read_matrix_keypad
+   481                           
+   482                           
+   483                           ;incstack = 0
+   484                           ; Regs used in _read_matrix_keypad: [wreg+status,2+status,0+btemp+1+pclath+cstack]
+   485                           ;read_matrix_keypad@mode stored from wreg
+   486     06D2  00F2               	movwf	read_matrix_keypad@mode
+   487     06D3                     l801:
+   488                           
+   489                           ;matrix_keypad.c: 114: unsigned char read_matrix_keypad(unsigned char mode);matrix_keypa
+      +                          d.c: 115: {;matrix_keypad.c: 116:     static unsigned char once = 1;;matrix_keypad.c: 11
+      +                          7:     unsigned char key;;matrix_keypad.c: 119:     key = scan_keypad();
+   490     06D3  120A  118A  273B  120A  118A  	fcall	_scan_keypad
+   491     06D8  00F3               	movwf	read_matrix_keypad@key
+   492     06D9                     l803:
+   493                           
+   494                           ;matrix_keypad.c: 121:     if (mode == 0)
+   495     06D9  0872               	movf	read_matrix_keypad@mode,w
+   496     06DA  1D03               	btfss	3,2
+   497     06DB  2EDD               	goto	u171
+   498     06DC  2EDE               	goto	u170
+   499     06DD                     u171:
+   500     06DD  2EE0               	goto	l811
+   501     06DE                     u170:
+   502     06DE                     l805:
+   503                           
+   504                           ;matrix_keypad.c: 122:     {;matrix_keypad.c: 123:         return key;
+   505     06DE  0873               	movf	read_matrix_keypad@key,w
+   506     06DF  2EF4               	goto	l83
+   507     06E0                     l811:
+   508                           
+   509                           ;matrix_keypad.c: 126:     {;matrix_keypad.c: 127:         if ((key != 0xFF) && once)
+   510     06E0  0A73               	incf	read_matrix_keypad@key,w
+   511     06E1  1903               	btfsc	3,2
+   512     06E2  2EE4               	goto	u181
+   513     06E3  2EE5               	goto	u180
+   514     06E4                     u181:
+   515     06E4  2EEC               	goto	l823
+   516     06E5                     u180:
+   517     06E5                     l813:
+   518     06E5  087D               	movf	read_matrix_keypad@once,w
+   519     06E6  1903               	btfsc	3,2
+   520     06E7  2EE9               	goto	u191
+   521     06E8  2EEA               	goto	u190
+   522     06E9                     u191:
+   523     06E9  2EEC               	goto	l823
+   524     06EA                     u190:
+   525     06EA                     l815:
+   526                           
+   527                           ;matrix_keypad.c: 128:         {;matrix_keypad.c: 129:             once = 0;
+   528     06EA  01FD               	clrf	read_matrix_keypad@once
+   529     06EB  2EDE               	goto	l805
+   530     06EC                     l823:
+   531     06EC  0A73               	incf	read_matrix_keypad@key,w
+   532     06ED  1D03               	btfss	3,2
+   533     06EE  2EF0               	goto	u201
+   534     06EF  2EF1               	goto	u200
+   535     06F0                     u201:
+   536     06F0  2EF3               	goto	l827
+   537     06F1                     u200:
+   538     06F1                     l825:
+   539                           
+   540                           ;matrix_keypad.c: 134:         {;matrix_keypad.c: 135:             once = 1;
+   541     06F1  01FD               	clrf	read_matrix_keypad@once
+   542     06F2  0AFD               	incf	read_matrix_keypad@once,f
+   543     06F3                     l827:
+   544                           
+   545                           ;matrix_keypad.c: 139:     return 0xFF;
+   546     06F3  30FF               	movlw	255
+   547     06F4                     l83:
+   548     06F4  0008               	return
+   549     06F5                     __end_of_read_matrix_keypad:
+   550                           
+   551                           	psect	text2
+   552     073B                     __ptext2:	
+   553 ;; *************** function _scan_keypad *****************
+   554 ;; Defined at:
+   555 ;;		line 24 in file "matrix_keypad.c"
+   556 ;; Parameters:    Size  Location     Type
+   557 ;;		None
+   558 ;; Auto vars:     Size  Location     Type
+   559 ;;  i               2    0[COMMON] int 
+   560 ;; Return value:  Size  Location     Type
+   561 ;;                  1    wreg      unsigned char 
+   562 ;; Registers used:
+   563 ;;		wreg, status,2, status,0, btemp+1
+   564 ;; Tracked objects:
+   565 ;;		On entry : 0/0
+   566 ;;		On exit  : 0/0
+   567 ;;		Unchanged: 0/0
+   568 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   569 ;;      Params:         0       0       0       0       0
+   570 ;;      Locals:         2       0       0       0       0
+   571 ;;      Temps:          0       0       0       0       0
+   572 ;;      Totals:         2       0       0       0       0
+   573 ;;Total ram usage:        2 bytes
+   574 ;; Hardware stack levels used: 1
+   575 ;; This function calls:
+   576 ;;		Nothing
+   577 ;; This function is called by:
+   578 ;;		_read_matrix_keypad
+   579 ;; This function uses a non-reentrant model
+   580 ;;
+   581                           
+   582     073B                     _scan_keypad:	
+   583                           ;psect for function _scan_keypad
+   584                           
+   585     073B                     l691:	
+   586                           ;incstack = 0
+   587                           ; Regs used in _scan_keypad: [wreg+status,2+status,0+btemp+1]
+   588                           
+   589                           
+   590                           ;matrix_keypad.c: 26:     int i;;matrix_keypad.c: 28:     RD3 = 0;
+   591     073B  1283               	bcf	3,5	;RP0=0, select bank0
+   592     073C  1303               	bcf	3,6	;RP1=0, select bank0
+   593     073D  1188               	bcf	8,3	;volatile
+   594                           
+   595                           ;matrix_keypad.c: 29:     RD2 = 1;
+   596     073E  1508               	bsf	8,2	;volatile
+   597                           
+   598                           ;matrix_keypad.c: 30:     RD1 = 1;
+   599     073F  1488               	bsf	8,1	;volatile
+   600                           
+   601                           ;matrix_keypad.c: 31:     RD0 = 1;
+   602     0740  1408               	bsf	8,0	;volatile
+   603     0741                     l693:
+   604                           
+   605                           ;matrix_keypad.c: 33:     for (i = 100; i--; );
+   606     0741  3064               	movlw	100
+   607     0742  00F0               	movwf	scan_keypad@i
+   608     0743  3000               	movlw	0
+   609     0744  00F1               	movwf	scan_keypad@i+1
+   610     0745                     l695:
+   611     0745  30FF               	movlw	255
+   612     0746  07F0               	addwf	scan_keypad@i,f
+   613     0747  1803               	skipnc
+   614     0748  0AF1               	incf	scan_keypad@i+1,f
+   615     0749  30FF               	movlw	255
+   616     074A  07F1               	addwf	scan_keypad@i+1,f
+   617     074B  0A70               	incf	scan_keypad@i,w
+   618     074C  1D03               	skipz
+   619     074D  2F52               	goto	u11
+   620     074E  0A71               	incf	scan_keypad@i+1,w
+   621     074F  1D03               	btfss	3,2
+   622     0750  2F52               	goto	u11
+   623     0751  2F53               	goto	u10
+   624     0752                     u11:
+   625     0752  2F45               	goto	l695
+   626     0753                     u10:
+   627     0753                     l50:
+   628                           
+   629                           ;matrix_keypad.c: 35:     if (RB0 == 0)
+   630     0753  1283               	bcf	3,5	;RP0=0, select bank0
+   631     0754  1303               	bcf	3,6	;RP1=0, select bank0
+   632     0755  1806               	btfsc	6,0	;volatile
+   633     0756  2F58               	goto	u21
+   634     0757  2F59               	goto	u20
+   635     0758                     u21:
+   636     0758  2F5B               	goto	l51
+   637     0759                     u20:
+   638     0759                     l697:
+   639                           
+   640                           ;matrix_keypad.c: 36:     {;matrix_keypad.c: 37:         return 1;
+   641     0759  3001               	movlw	1
+   642     075A  2FF5               	goto	l52
+   643     075B                     l51:	
+   644                           ;matrix_keypad.c: 39:     else if (RB1 == 0)
+   645                           
+   646     075B  1886               	btfsc	6,1	;volatile
+   647     075C  2F5E               	goto	u31
+   648     075D  2F5F               	goto	u30
+   649     075E                     u31:
+   650     075E  2F61               	goto	l54
+   651     075F                     u30:
+   652     075F                     l703:
+   653                           
+   654                           ;matrix_keypad.c: 40:     {;matrix_keypad.c: 41:         return 2;
+   655     075F  3002               	movlw	2
+   656     0760  2FF5               	goto	l52
+   657     0761                     l54:	
+   658                           ;matrix_keypad.c: 43:     else if (RB2 == 0)
+   659                           
+   660     0761  1906               	btfsc	6,2	;volatile
+   661     0762  2F64               	goto	u41
+   662     0763  2F65               	goto	u40
+   663     0764                     u41:
+   664     0764  2F67               	goto	l53
+   665     0765                     u40:
+   666     0765                     l709:
+   667                           
+   668                           ;matrix_keypad.c: 44:     {;matrix_keypad.c: 45:         return 3;
+   669     0765  3003               	movlw	3
+   670     0766  2FF5               	goto	l52
+   671     0767                     l53:
+   672                           
+   673                           ;matrix_keypad.c: 48:     RD3 = 1;
+   674     0767  1588               	bsf	8,3	;volatile
+   675                           
+   676                           ;matrix_keypad.c: 49:     RD2 = 0;
+   677     0768  1108               	bcf	8,2	;volatile
+   678                           
+   679                           ;matrix_keypad.c: 50:     RD1 = 1;
+   680     0769  1488               	bsf	8,1	;volatile
+   681                           
+   682                           ;matrix_keypad.c: 51:     RD0 = 1;
+   683     076A  1408               	bsf	8,0	;volatile
+   684     076B                     l713:
+   685                           
+   686                           ;matrix_keypad.c: 53:    for (i = 100; i > 0; i--)
+   687     076B  3064               	movlw	100
+   688     076C  00F0               	movwf	scan_keypad@i
+   689     076D  3000               	movlw	0
+   690     076E  00F1               	movwf	scan_keypad@i+1
+   691     076F                     l719:
+   692                           
+   693                           ;matrix_keypad.c: 54:    {;matrix_keypad.c: 56:    }
+   694     076F  30FF               	movlw	255
+   695     0770  07F0               	addwf	scan_keypad@i,f
+   696     0771  1803               	skipnc
+   697     0772  0AF1               	incf	scan_keypad@i+1,f
+   698     0773  30FF               	movlw	255
+   699     0774  07F1               	addwf	scan_keypad@i+1,f
+   700     0775                     l721:
+   701     0775  0871               	movf	scan_keypad@i+1,w
+   702     0776  3A80               	xorlw	128
+   703     0777  00FF               	movwf	btemp+1
+   704     0778  3080               	movlw	128
+   705     0779  027F               	subwf	btemp+1,w
+   706     077A  1D03               	skipz
+   707     077B  2F7E               	goto	u55
+   708     077C  3001               	movlw	1
+   709     077D  0270               	subwf	scan_keypad@i,w
+   710     077E                     u55:
+   711     077E  1803               	skipnc
+   712     077F  2F81               	goto	u51
+   713     0780  2F82               	goto	u50
+   714     0781                     u51:
+   715     0781  2F6F               	goto	l719
+   716     0782                     u50:
+   717     0782                     l58:
+   718                           
+   719                           ;matrix_keypad.c: 58:     if (RB0 == 0)
+   720     0782  1283               	bcf	3,5	;RP0=0, select bank0
+   721     0783  1303               	bcf	3,6	;RP1=0, select bank0
+   722     0784  1806               	btfsc	6,0	;volatile
+   723     0785  2F87               	goto	u61
+   724     0786  2F88               	goto	u60
+   725     0787                     u61:
+   726     0787  2F8A               	goto	l59
+   727     0788                     u60:
+   728     0788                     l723:
+   729                           
+   730                           ;matrix_keypad.c: 59:     {;matrix_keypad.c: 60:         return 4;
+   731     0788  3004               	movlw	4
+   732     0789  2FF5               	goto	l52
+   733     078A                     l59:	
+   734                           ;matrix_keypad.c: 62:     else if (RB1 == 0)
+   735                           
+   736     078A  1886               	btfsc	6,1	;volatile
+   737     078B  2F8D               	goto	u71
+   738     078C  2F8E               	goto	u70
+   739     078D                     u71:
+   740     078D  2F90               	goto	l61
+   741     078E                     u70:
+   742     078E                     l729:
+   743                           
+   744                           ;matrix_keypad.c: 63:     {;matrix_keypad.c: 64:         return 5;
+   745     078E  3005               	movlw	5
+   746     078F  2FF5               	goto	l52
+   747     0790                     l61:	
+   748                           ;matrix_keypad.c: 66:     else if (RB2 == 0)
+   749                           
+   750     0790  1906               	btfsc	6,2	;volatile
+   751     0791  2F93               	goto	u81
+   752     0792  2F94               	goto	u80
+   753     0793                     u81:
+   754     0793  2F96               	goto	l60
+   755     0794                     u80:
+   756     0794                     l735:
+   757                           
+   758                           ;matrix_keypad.c: 67:     {;matrix_keypad.c: 68:         return 6;
+   759     0794  3006               	movlw	6
+   760     0795  2FF5               	goto	l52
+   761     0796                     l60:
+   762                           
+   763                           ;matrix_keypad.c: 71:     RD3 = 1;
+   764     0796  1588               	bsf	8,3	;volatile
+   765                           
+   766                           ;matrix_keypad.c: 72:     RD2 = 1;
+   767     0797  1508               	bsf	8,2	;volatile
+   768                           
+   769                           ;matrix_keypad.c: 73:     RD1 = 0;
+   770     0798  1088               	bcf	8,1	;volatile
+   771                           
+   772                           ;matrix_keypad.c: 74:     RD0 = 1;
+   773     0799  1408               	bsf	8,0	;volatile
+   774     079A                     l739:
+   775                           
+   776                           ;matrix_keypad.c: 76:     for (i = 100; i > 0; i--);
+   777     079A  3064               	movlw	100
+   778     079B  00F0               	movwf	scan_keypad@i
+   779     079C  3000               	movlw	0
+   780     079D  00F1               	movwf	scan_keypad@i+1
+   781     079E                     l745:
+   782     079E  30FF               	movlw	255
+   783     079F  07F0               	addwf	scan_keypad@i,f
+   784     07A0  1803               	skipnc
+   785     07A1  0AF1               	incf	scan_keypad@i+1,f
+   786     07A2  30FF               	movlw	255
+   787     07A3  07F1               	addwf	scan_keypad@i+1,f
+   788     07A4                     l747:
+   789     07A4  0871               	movf	scan_keypad@i+1,w
+   790     07A5  3A80               	xorlw	128
+   791     07A6  00FF               	movwf	btemp+1
+   792     07A7  3080               	movlw	128
+   793     07A8  027F               	subwf	btemp+1,w
+   794     07A9  1D03               	skipz
+   795     07AA  2FAD               	goto	u95
+   796     07AB  3001               	movlw	1
+   797     07AC  0270               	subwf	scan_keypad@i,w
+   798     07AD                     u95:
+   799     07AD  1803               	skipnc
+   800     07AE  2FB0               	goto	u91
+   801     07AF  2FB1               	goto	u90
+   802     07B0                     u91:
+   803     07B0  2F9E               	goto	l745
+   804     07B1                     u90:
+   805     07B1                     l65:
+   806                           
+   807                           ;matrix_keypad.c: 78:     if (RB0 == 0)
+   808     07B1  1283               	bcf	3,5	;RP0=0, select bank0
+   809     07B2  1303               	bcf	3,6	;RP1=0, select bank0
+   810     07B3  1806               	btfsc	6,0	;volatile
+   811     07B4  2FB6               	goto	u101
+   812     07B5  2FB7               	goto	u100
+   813     07B6                     u101:
+   814     07B6  2FB9               	goto	l66
+   815     07B7                     u100:
+   816     07B7                     l749:
+   817                           
+   818                           ;matrix_keypad.c: 79:     {;matrix_keypad.c: 80:         return 7;
+   819     07B7  3007               	movlw	7
+   820     07B8  2FF5               	goto	l52
+   821     07B9                     l66:	
+   822                           ;matrix_keypad.c: 82:     else if (RB1 == 0)
+   823                           
+   824     07B9  1886               	btfsc	6,1	;volatile
+   825     07BA  2FBC               	goto	u111
+   826     07BB  2FBD               	goto	u110
+   827     07BC                     u111:
+   828     07BC  2FBF               	goto	l68
+   829     07BD                     u110:
+   830     07BD                     l755:
+   831                           
+   832                           ;matrix_keypad.c: 83:     {;matrix_keypad.c: 84:         return 8;
+   833     07BD  3008               	movlw	8
+   834     07BE  2FF5               	goto	l52
+   835     07BF                     l68:	
+   836                           ;matrix_keypad.c: 86:     else if (RB2 == 0)
+   837                           
+   838     07BF  1906               	btfsc	6,2	;volatile
+   839     07C0  2FC2               	goto	u121
+   840     07C1  2FC3               	goto	u120
+   841     07C2                     u121:
+   842     07C2  2FC5               	goto	l67
+   843     07C3                     u120:
+   844     07C3                     l761:
+   845                           
+   846                           ;matrix_keypad.c: 87:     {;matrix_keypad.c: 88:         return 9;
+   847     07C3  3009               	movlw	9
+   848     07C4  2FF5               	goto	l52
+   849     07C5                     l67:
+   850                           
+   851                           ;matrix_keypad.c: 91:     RD3 = 1;
+   852     07C5  1588               	bsf	8,3	;volatile
+   853                           
+   854                           ;matrix_keypad.c: 92:     RD2 = 1;
+   855     07C6  1508               	bsf	8,2	;volatile
+   856                           
+   857                           ;matrix_keypad.c: 93:     RD1 = 1;
+   858     07C7  1488               	bsf	8,1	;volatile
+   859                           
+   860                           ;matrix_keypad.c: 94:     RD0 = 0;
+   861     07C8  1008               	bcf	8,0	;volatile
+   862     07C9                     l765:
+   863                           
+   864                           ;matrix_keypad.c: 96:     for (i = 100; i > 0; i--);
+   865     07C9  3064               	movlw	100
+   866     07CA  00F0               	movwf	scan_keypad@i
+   867     07CB  3000               	movlw	0
+   868     07CC  00F1               	movwf	scan_keypad@i+1
+   869     07CD                     l771:
+   870     07CD  30FF               	movlw	255
+   871     07CE  07F0               	addwf	scan_keypad@i,f
+   872     07CF  1803               	skipnc
+   873     07D0  0AF1               	incf	scan_keypad@i+1,f
+   874     07D1  30FF               	movlw	255
+   875     07D2  07F1               	addwf	scan_keypad@i+1,f
+   876     07D3                     l773:
+   877     07D3  0871               	movf	scan_keypad@i+1,w
+   878     07D4  3A80               	xorlw	128
+   879     07D5  00FF               	movwf	btemp+1
+   880     07D6  3080               	movlw	128
+   881     07D7  027F               	subwf	btemp+1,w
+   882     07D8  1D03               	skipz
+   883     07D9  2FDC               	goto	u135
+   884     07DA  3001               	movlw	1
+   885     07DB  0270               	subwf	scan_keypad@i,w
+   886     07DC                     u135:
+   887     07DC  1803               	skipnc
+   888     07DD  2FDF               	goto	u131
+   889     07DE  2FE0               	goto	u130
+   890     07DF                     u131:
+   891     07DF  2FCD               	goto	l771
+   892     07E0                     u130:
+   893     07E0                     l72:
+   894                           
+   895                           ;matrix_keypad.c: 98:     if (RB0 == 0)
+   896     07E0  1283               	bcf	3,5	;RP0=0, select bank0
+   897     07E1  1303               	bcf	3,6	;RP1=0, select bank0
+   898     07E2  1806               	btfsc	6,0	;volatile
+   899     07E3  2FE5               	goto	u141
+   900     07E4  2FE6               	goto	u140
+   901     07E5                     u141:
+   902     07E5  2FE8               	goto	l73
+   903     07E6                     u140:
+   904     07E6                     l775:
+   905                           
+   906                           ;matrix_keypad.c: 99:     {;matrix_keypad.c: 100:         return '*';
+   907     07E6  302A               	movlw	42
+   908     07E7  2FF5               	goto	l52
+   909     07E8                     l73:	
+   910                           ;matrix_keypad.c: 102:     else if (RB1 == 0)
+   911                           
+   912     07E8  1886               	btfsc	6,1	;volatile
+   913     07E9  2FEB               	goto	u151
+   914     07EA  2FEC               	goto	u150
+   915     07EB                     u151:
+   916     07EB  2FEE               	goto	l75
+   917     07EC                     u150:
+   918     07EC                     l781:
+   919                           
+   920                           ;matrix_keypad.c: 103:     {;matrix_keypad.c: 104:         return 0;
+   921     07EC  3000               	movlw	0
+   922     07ED  2FF5               	goto	l52
+   923     07EE                     l75:	
+   924                           ;matrix_keypad.c: 106:     else if (RB2 == 0)
+   925                           
+   926     07EE  1906               	btfsc	6,2	;volatile
+   927     07EF  2FF1               	goto	u161
+   928     07F0  2FF2               	goto	u160
+   929     07F1                     u161:
+   930     07F1  2FF4               	goto	l791
+   931     07F2                     u160:
+   932     07F2                     l787:
+   933                           
+   934                           ;matrix_keypad.c: 107:     {;matrix_keypad.c: 108:         return '#';
+   935     07F2  3023               	movlw	35
+   936     07F3  2FF5               	goto	l52
+   937     07F4                     l791:
+   938                           
+   939                           ;matrix_keypad.c: 111:     return 0xFF;
+   940     07F4  30FF               	movlw	255
+   941     07F5                     l52:
+   942     07F5  0008               	return
+   943     07F6                     __end_of_scan_keypad:
+   944                           
+   945                           	psect	text3
+   946     06B6                     __ptext3:	
+   947 ;; *************** function _init_config *****************
+   948 ;; Defined at:
+   949 ;;		line 13 in file "main.c"
+   950 ;; Parameters:    Size  Location     Type
+   951 ;;		None
+   952 ;; Auto vars:     Size  Location     Type
+   953 ;;		None
+   954 ;; Return value:  Size  Location     Type
+   955 ;;                  1    wreg      void 
+   956 ;; Registers used:
+   957 ;;		wreg, status,2, status,0, pclath, cstack
+   958 ;; Tracked objects:
+   959 ;;		On entry : 0/0
+   960 ;;		On exit  : 0/0
+   961 ;;		Unchanged: 0/0
+   962 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   963 ;;      Params:         0       0       0       0       0
+   964 ;;      Locals:         0       0       0       0       0
+   965 ;;      Temps:          0       0       0       0       0
+   966 ;;      Totals:         0       0       0       0       0
+   967 ;;Total ram usage:        0 bytes
+   968 ;; Hardware stack levels used: 1
+   969 ;; Hardware stack levels required when called: 1
+   970 ;; This function calls:
+   971 ;;		_init_matrix_keypad
+   972 ;; This function is called by:
+   973 ;;		_main
+   974 ;; This function uses a non-reentrant model
+   975 ;;
+   976                           
+   977     06B6                     _init_config:	
+   978                           ;psect for function _init_config
+   979                           
+   980     06B6                     l795:	
+   981                           ;incstack = 0
+   982                           ; Regs used in _init_config: [wreg+status,2+status,0+pclath+cstack]
+   983                           
+   984                           
+   985                           ;main.c: 15: 
+   986     06B6  120A  118A  26C2  120A  118A  	fcall	_init_matrix_keypad
+   987     06BB                     l797:
+   988                           
+   989                           ;main.c: 16:     while (1) {
+   990     06BB  1683               	bsf	3,5	;RP0=1, select bank1
+   991     06BC  1303               	bcf	3,6	;RP1=0, select bank1
+   992     06BD  1208               	bcf	8,4	;volatile
+   993     06BE                     l799:
+   994                           
+   995                           ;main.c: 17:         key = read_matrix_keypad(0);
+   996     06BE  1283               	bcf	3,5	;RP0=0, select bank0
+   997     06BF  1303               	bcf	3,6	;RP1=0, select bank0
+   998     06C0  1208               	bcf	8,4	;volatile
+   999     06C1                     l11:
+  1000     06C1  0008               	return
+  1001     06C2                     __end_of_init_config:
+  1002                           
+  1003                           	psect	text4
+  1004     06C2                     __ptext4:	
+  1005 ;; *************** function _init_matrix_keypad *****************
+  1006 ;; Defined at:
+  1007 ;;		line 4 in file "matrix_keypad.c"
+  1008 ;; Parameters:    Size  Location     Type
+  1009 ;;		None
+  1010 ;; Auto vars:     Size  Location     Type
+  1011 ;;		None
+  1012 ;; Return value:  Size  Location     Type
+  1013 ;;                  1    wreg      void 
+  1014 ;; Registers used:
+  1015 ;;		wreg, status,2
+  1016 ;; Tracked objects:
+  1017 ;;		On entry : 0/0
+  1018 ;;		On exit  : 0/0
+  1019 ;;		Unchanged: 0/0
+  1020 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1021 ;;      Params:         0       0       0       0       0
+  1022 ;;      Locals:         0       0       0       0       0
+  1023 ;;      Temps:          0       0       0       0       0
+  1024 ;;      Totals:         0       0       0       0       0
+  1025 ;;Total ram usage:        0 bytes
+  1026 ;; Hardware stack levels used: 1
+  1027 ;; This function calls:
+  1028 ;;		Nothing
+  1029 ;; This function is called by:
+  1030 ;;		_init_config
+  1031 ;; This function uses a non-reentrant model
+  1032 ;;
+  1033                           
+  1034     06C2                     _init_matrix_keypad:	
+  1035                           ;psect for function _init_matrix_keypad
+  1036                           
+  1037     06C2                     l679:	
+  1038                           ;incstack = 0
+  1039                           ; Regs used in _init_matrix_keypad: [wreg+status,2]
+  1040                           
+  1041                           
+  1042                           ;matrix_keypad.c: 8:     TRISB = TRISB | 0x07;
+  1043     06C2  1683               	bsf	3,5	;RP0=1, select bank1
+  1044     06C3  1303               	bcf	3,6	;RP1=0, select bank1
+  1045     06C4  0806               	movf	6,w	;volatile
+  1046     06C5  3807               	iorlw	7
+  1047     06C6  0086               	movwf	6	;volatile
+  1048                           
+  1049                           ;matrix_keypad.c: 12:     TRISD = TRISD & 0xF0;
+  1050     06C7  0808               	movf	8,w	;volatile
+  1051     06C8  39F0               	andlw	240
+  1052     06C9  0088               	movwf	8	;volatile
+  1053     06CA                     l681:
+  1054                           
+  1055                           ;matrix_keypad.c: 15:     nRBPU = 0;
+  1056     06CA  1381               	bcf	1,7	;volatile
+  1057     06CB                     l683:
+  1058                           
+  1059                           ;matrix_keypad.c: 18:     RD3 = 1;
+  1060     06CB  1283               	bcf	3,5	;RP0=0, select bank0
+  1061     06CC  1303               	bcf	3,6	;RP1=0, select bank0
+  1062     06CD  1588               	bsf	8,3	;volatile
+  1063     06CE                     l685:
+  1064                           
+  1065                           ;matrix_keypad.c: 19:     RD2 = 1;
+  1066     06CE  1508               	bsf	8,2	;volatile
+  1067     06CF                     l687:
+  1068                           
+  1069                           ;matrix_keypad.c: 20:     RD1 = 1;
+  1070     06CF  1488               	bsf	8,1	;volatile
+  1071     06D0                     l689:
+  1072                           
+  1073                           ;matrix_keypad.c: 21:     RD0 = 1;
+  1074     06D0  1408               	bsf	8,0	;volatile
+  1075     06D1                     l45:
+  1076     06D1  0008               	return
+  1077     06D2                     __end_of_init_matrix_keypad:
+  1078     007E                     btemp	set	126	;btemp
+  1079     007E                     wtemp0	set	126
+  1080                           
+  1081                           	psect	idloc
+  1082                           
+  1083                           ;Config register IDLOC0 @ 0x2000
+  1084                           ;	unspecified, using default values
+  1085     2000                     	org	8192
+  1086     2000  3FFF               	dw	16383
+  1087                           
+  1088                           ;Config register IDLOC1 @ 0x2001
+  1089                           ;	unspecified, using default values
+  1090     2001                     	org	8193
+  1091     2001  3FFF               	dw	16383
+  1092                           
+  1093                           ;Config register IDLOC2 @ 0x2002
+  1094                           ;	unspecified, using default values
+  1095     2002                     	org	8194
+  1096     2002  3FFF               	dw	16383
+  1097                           
+  1098                           ;Config register IDLOC3 @ 0x2003
+  1099                           ;	unspecified, using default values
+  1100     2003                     	org	8195
+  1101     2003  3FFF               	dw	16383
+  1102                           
+  1103                           	psect	config
+  1104                           
+  1105                           ;Config register CONFIG @ 0x2007
+  1106                           ;	Oscillator Selection bits
+  1107                           ;	FOSC = 0x3, unprogrammed default
+  1108                           ;	Watchdog Timer Enable bit
+  1109                           ;	WDTE = OFF, WDT disabled
+  1110                           ;	Power-up Timer Enable bit
+  1111                           ;	PWRTE = 0x1, unprogrammed default
+  1112                           ;	Brown-out Reset Enable bit
+  1113                           ;	BOREN = 0x1, unprogrammed default
+  1114                           ;	Low-Voltage (Single-Supply) In-Circuit Serial Programming Enable bit
+  1115                           ;	LVP = 0x1, unprogrammed default
+  1116                           ;	Data EEPROM Memory Code Protection bit
+  1117                           ;	CPD = 0x1, unprogrammed default
+  1118                           ;	Flash Program Memory Write Enable bits
+  1119                           ;	WRT = 0x3, unprogrammed default
+  1120                           ;	In-Circuit Debugger Mode bit
+  1121                           ;	DEBUG = 0x1, unprogrammed default
+  1122                           ;	Flash Program Memory Code Protection bit
+  1123                           ;	CP = 0x1, unprogrammed default
+  1124     2007                     	org	8199
+  1125     2007  3FFB               	dw	16379
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        1
+    BSS         0
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON           14     13      14
+    BANK0            80      0       0
+    BANK1            80      0       0
+    BANK3            96      0       0
+    BANK2            96      0       0
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMMON
+
+    _main->_read_matrix_keypad
+    _read_matrix_keypad->_scan_keypad
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 9     9      0     225
+                                              4 COMMON     9     9      0
+                        _init_config
+                 _read_matrix_keypad
+ ---------------------------------------------------------------------------------
+ (1) _read_matrix_keypad                                   2     2      0     180
+                                              2 COMMON     2     2      0
+                        _scan_keypad
+ ---------------------------------------------------------------------------------
+ (2) _scan_keypad                                          2     2      0     105
+                                              0 COMMON     2     2      0
+ ---------------------------------------------------------------------------------
+ (1) _init_config                                          0     0      0       0
+                 _init_matrix_keypad
+ ---------------------------------------------------------------------------------
+ (2) _init_matrix_keypad                                   0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 2
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _init_config
+     _init_matrix_keypad
+   _read_matrix_keypad
+     _scan_keypad
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BANK3               60      0       0       9        0.0%
+BITBANK3            60      0       0       8        0.0%
+SFR3                 0      0       0       4        0.0%
+BITSFR3              0      0       0       4        0.0%
+BANK2               60      0       0      11        0.0%
+BITBANK2            60      0       0      10        0.0%
+SFR2                 0      0       0       5        0.0%
+BITSFR2              0      0       0       5        0.0%
+BANK1               50      0       0       7        0.0%
+BITBANK1            50      0       0       6        0.0%
+SFR1                 0      0       0       2        0.0%
+BITSFR1              0      0       0       2        0.0%
+BANK0               50      0       0       5        0.0%
+BITBANK0            50      0       0       4        0.0%
+SFR0                 0      0       0       1        0.0%
+BITSFR0              0      0       0       1        0.0%
+COMMON               E      D       E       1      100.0%
+BITCOMMON            E      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+DATA                 0      0       E      12        0.0%
+ABS                  0      0       E       3        0.0%
+NULL                 0      0       0       0        0.0%
+STACK                0      0       0       2        0.0%
+EEDATA             100      0       0       0        0.0%
+
+
+Microchip Technology PIC Macro Assembler V2.41 build 20230208172133 
+Symbol Table                                                                                   Mon Sep 11 20:43:12 2023
+
+                        l11 06C1                          l50 0753                          l51 075B  
+                        l60 0796                          l52 07F5                          l45 06D1  
+                        l61 0790                          l53 0767                          l54 0761  
+                        l72 07E0                          l73 07E8                          l65 07B1  
+                        l66 07B9                          l58 0782                          l75 07EE  
+                        l67 07C5                          l59 078A                          l83 06F4  
+                        l68 07BF                          u10 0753                          u11 0752  
+                        u20 0759                          u21 0758                          u30 075F  
+                        u31 075E                          u40 0765                          u41 0764  
+                        u50 0782                          u51 0781                          u60 0788  
+                        u61 0787                          u70 078E                          u71 078D  
+                        u55 077E                          u80 0794                          u81 0793  
+                        u90 07B1                          u91 07B0                          u95 07AD  
+        _init_matrix_keypad 06C2                         l703 075F                         l721 0775  
+                       l713 076B                         l801 06D3                         l723 0788  
+                       l811 06E0                         l803 06D9                         l709 0765  
+                       l813 06E5                         l805 06DE                         l735 0794  
+                       l719 076F                         l815 06EA                         l823 06EC  
+                       l831 06F5                         l681 06CA                         l761 07C3  
+                       l745 079E                         l729 078E                         l825 06F1  
+                       l841 0713                         l833 06FA                         l683 06CB  
+                       l771 07CD                         l755 07BD                         l747 07A4  
+                       l739 079A                         l691 073B                         l827 06F3  
+                       l835 0701                         l685 06CE                         l781 07EC  
+                       l773 07D3                         l765 07C9                         l749 07B7  
+                       l693 0741                         l837 0707                         l687 06CF  
+                       l679 06C2                         l791 07F4                         l775 07E6  
+                       l695 0745                         l689 06D0                         l697 0759  
+                       l795 06B6                         l787 07F2                         l797 06BB  
+                       l799 06BE                         _RB0 0030                         _RB1 0031  
+                       _RB2 0032                         _RD0 0040                         _RD1 0041  
+                       _RD2 0042                         _RD3 0043                         u100 07B7  
+                       _RD4 0044                         u101 07B6                         u110 07BD  
+                       u111 07BC                         u120 07C3                         u200 06F1  
+                       u121 07C2                         u201 06F0                         u130 07E0  
+                       u210 0707                         u131 07DF                         u211 0706  
+                       u140 07E6                         u220 072F                         u141 07E5  
+                       u150 07EC                         u230 0737                         u151 07EB  
+                       u135 07DC                         u231 0736                         u160 07F2  
+                       u161 07F1                         u225 0722                         u170 06DE  
+                       u226 0723                         u171 06DD                         u227 0728  
+                       u180 06E5                         u228 0729                         u181 06E4  
+                       u229 072E                         u190 06EA                         u191 06E9  
+       ?_init_matrix_keypad 0070                        _main 06F5                        btemp 007E  
+                      start 0000        ??_init_matrix_keypad 0070                       ?_main 0070  
+              ?_init_config 0070                       _TRISB 0086                       _TRISD 0088  
+                     _nRBPU 040F          _read_matrix_keypad 06D2         ?_read_matrix_keypad 0070  
+                     status 0003                       wtemp0 007E                ?_scan_keypad 0070  
+           __initialization 07F6                __end_of_main 073B        ??_read_matrix_keypad 0072  
+                    ??_main 0074                      _TRISD4 0444                __pdataCOMMON 007D  
+   __end_of__initialization 07FC              __pcstackCOMMON 0070                  __pmaintext 06F5  
+                   __ptext1 06D2                     __ptext2 073B                     __ptext3 06B6  
+                   __ptext4 06C2                     main@key 0078        end_of_initialization 07FC  
+             __pidataCOMMON 06B5         start_initialization 07F6                scan_keypad@i 0070  
+    read_matrix_keypad@mode 0072      read_matrix_keypad@once 007D               ??_init_config 0070  
+                 ___latbits 0002               ??_scan_keypad 0070         __end_of_init_config 06C2  
+__end_of_init_matrix_keypad 06D2         __end_of_scan_keypad 07F6                   main@delay 0079  
+     read_matrix_keypad@key 0073  __end_of_read_matrix_keypad 06F5                 _init_config 06B6  
+               _scan_keypad 073B  
